@@ -35,7 +35,13 @@ class Comment extends Component {
   }
 
   _getProcessedContent (content) {
-    return content.replace(/`([\S\s]+?)`/g, '<code>$1</code>')
+    return content
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;")
+      .replace(/`([\S\s]+?)`/g, '<code>$1</code>')
   }
 
   handleDeleteComment () {
@@ -56,11 +62,9 @@ class Comment extends Component {
         <p dangerouslySetInnerHTML={{
           __html: this._getProcessedContent(comment.content)
         }} />
-        <div className='comment-info'>
-          <span className='comment-createdtime'>
-            {this.state.timeString}
-          </span>
-        </div>
+        <span className='comment-createdtime'>
+          {this.state.timeString}
+        </span>
         <span
           onClick={this.handleDeleteComment.bind(this)}
           className='comment-delete'>
