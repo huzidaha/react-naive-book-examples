@@ -32,10 +32,14 @@ class CommentInput extends Component {
     localStorage.setItem('username', username)
   }
 
+  handleUsernameBlur (event) {
+    this._saveUsername(event.target.value)
+  }
+
   handleUsernameChange (event) {
-    const username = event.target.value
-    this.setState({ username })
-    this._saveUsername(username)
+    this.setState({
+      username: event.target.value
+    })
   }
 
   handleContentChange (event) {
@@ -63,6 +67,7 @@ class CommentInput extends Component {
           <div className='comment-field-input'>
             <input
               value={this.state.username}
+              onBlur={this.handleUsernameBlur.bind(this)}
               onChange={this.handleUsernameChange.bind(this)} />
           </div>
         </div>
