@@ -9,9 +9,15 @@ class CommentInput extends Component {
     }
   }
 
-  handleInputChange (event) {
+  handleUsernameChange (event) {
     this.setState({
-      [event.target.name]: event.target.value
+      username: event.target.value
+    })
+  }
+
+  handleContentChange (event) {
+    this.setState({
+      content: event.target.value
     })
   }
 
@@ -29,18 +35,16 @@ class CommentInput extends Component {
           <span className='comment-field-name'>用户名：</span>
           <div className='comment-field-input'>
             <input
-              name='username'
               value={this.state.username}
-              onChange={this.handleInputChange.bind(this)} />
+              onChange={this.handleUsernameChange.bind(this)} />
           </div>
         </div>
         <div className='comment-field'>
           <span className='comment-field-name'>评论内容：</span>
           <div className='comment-field-input'>
             <textarea
-              name='content'
               value={this.state.content}
-              onChange={this.handleInputChange.bind(this)} />
+              onChange={this.handleContentChange.bind(this)} />
           </div>
         </div>
         <div className='comment-field-button'>
