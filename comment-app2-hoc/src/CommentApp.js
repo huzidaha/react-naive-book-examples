@@ -11,7 +11,9 @@ class CommentApp extends Component {
 
   constructor (props) {
     super(props)
-    this.state = { comments: props.data }
+    this.state = {
+      comments: props.data || []
+    }
   }
 
   handleSubmitComment (comment) {
