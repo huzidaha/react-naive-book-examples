@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Comment from './Comment'
 
-class CommentList extends Component {
+export default class CommentList extends Component {
   static propTypes = {
     comments: PropTypes.array,
     onDeleteComment: PropTypes.func
@@ -31,5 +31,3 @@ class CommentList extends Component {
     )
   }
 }
-
-export default CommentList
