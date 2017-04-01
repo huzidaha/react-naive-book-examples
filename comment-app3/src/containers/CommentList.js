@@ -36,7 +36,7 @@ class CommentListContainer extends Component {
     return (
       <CommentList
         comments={this.props.comments}
-        onDeleteComment={this.handleDeleteComment.bind(this)}/>
+        onDeleteComment={this.handleDeleteComment.bind(this)} />
     )
   }
 }
