@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import CommentInput from '../components/CommentInput'
-import { addComment } from '../reducers'
+import { addComment } from '../reducers/comments'
 
 class CommentInputContainer extends Component {
   static propTypes = {
@@ -30,6 +30,9 @@ class CommentInputContainer extends Component {
   }
 
   handleSubmitComment (comment) {
+    if (!comment) return
+    if (!comment.username) return alert('请输入用户名')
+    if (!comment.content) return alert('请输入评论内容')
     const { comments } = this.props
     const newComments = [...comments, comment]
     localStorage.setItem('comments', JSON.stringify(newComments))
