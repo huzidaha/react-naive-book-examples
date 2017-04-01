@@ -31,7 +31,7 @@ class CommentInputContainer extends Component {
 
   handleSubmitComment (comment) {
     const { comments } = this.props
-    const newComments = comments.concat(comment)
+    const newComments = [...comments, comment]
     localStorage.setItem('comments', JSON.stringify(newComments))
     if (this.props.onSubmit) {
       this.props.onSubmit(comment)
