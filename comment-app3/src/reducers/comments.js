@@ -1,5 +1,5 @@
 // action types
-const INIT_COMMNETS = 'INIT_COMMNETS'
+const INIT_COMMENTS = 'INIT_COMMENTS'
 const ADD_COMMENT = 'ADD_COMMENT'
 const DELETE_COMMENT = 'DELETE_COMMENT'
 
@@ -9,7 +9,7 @@ export default function (state, action) {
     state = { comments: [] }
   }
   switch (action.type) {
-    case INIT_COMMNETS:
+    case INIT_COMMENTS:
       // 初始化评论
       return { comments: action.comments }
     case ADD_COMMENT:
@@ -32,7 +32,7 @@ export default function (state, action) {
 
 // action creators
 export const initComments = (comments) => {
-  return { type: INIT_COMMNETS, comments }
+  return { type: INIT_COMMENTS, comments }
 }
 
 export const addComment = (comment) => {
